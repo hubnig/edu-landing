@@ -1,0 +1,140 @@
+/* =========================================
+   🎨 ULTIMATE RESET + NORMALIZE (2026)
+   Лучшее из: modern-css-reset + normalize.css + custom fixes
+   ========================================= */
+
+/* 1. Box-sizing для всех — основа стабильной вёрстки */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Плавная прокрутка к якорям (меню) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Убираем стандартные отступы, но не ломаем диалоги */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Списки без маркеров — навигация и фичи будут чистыми */
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* 4. Медиа не вылезают за контейнер */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. Формы наследуют шрифт и цвет — больше нет «уродливых» инпутов */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* 6. Ссылки — чистые, без подчёркивания */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 7. Таблицы — без лишних отступов */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 8. Заголовки и параграфы — без переполнения */
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+}
+
+/* 9. Улучшенная типографика (современные браузеры) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 10. Красивое выравнивание текста (где поддерживается) */
+@supports (text-wrap: balance) {
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* 11. Формы — фиксы для браузеров */
+/* Убираем стандартные стили кнопок и инпутов */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+  cursor: pointer;
+}
+
+/* Убираем лишний фокус в Firefox */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+
+/* Поиск в Safari — убираем крестик и лишние стили */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Чекбоксы и радиокнопки — без лишнего паддинга */
+[type="checkbox"],
+[type="radio"] {
+  padding: 0;
+}
+
+/* 12. Мобильные браузеры — не масштабируют текст */
+:root {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 13. HTML5 элементы для старых браузеров */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* 14. Скрываем элементы правильно */
+[hidden] {
+  display: none;
+}
+
+/* 15. Root-контейнеры для фреймворков (опционально) */
+#root, #__next {
+  isolation: isolate;
+}
