@@ -1,13 +1,11 @@
 body {
 	font-family: var(--font-main);
-	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.4;
 	font-weight: 400;
 	color: black;
 	background-color: #f9f9f9;
 }
-
 
 /* calc(var(--container-width) + 20px * 2) хз мб так надо */
 .container {
@@ -18,16 +16,23 @@ body {
 }
 
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	column-gap: 20px;
+	& .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+	}
 }
-
 
 /* Посмотреть можно ли это убрать, через reset or normalize */
 .header-logo {
 	flex-shrink: 0;
+}
+
+.header-logo-menu {
+	display: flex;
+	align-items: center;
+	column-gap: 34px;
 }
 
 .header-menu-list {
@@ -42,18 +47,21 @@ body {
 
 .header-menu-link {
 	padding-inline: 16px;
+	transition: color 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--color-gray);
+	}
+
+	&[aria-current='page'] {
+		font-weight: 700;
+		color: var(--color-primary);
+	}
 }
 
-/* Заменить на .header-... */
-a:hover {
-	color: var(--color-gray);
-}
-
-a {
-	transition-duration: 0.2s;
-}
-
-.button {
+.header-download {
+	cursor: pointer;
 	padding: 16px 24px;
 	font-weight: 700;
 	box-shadow: 4px 4px 0 0 var(--color-gray);
@@ -61,4 +69,9 @@ a {
 	border: none;
 	color: var(--color-gray);
 	white-space: nowrap;
+
+	&:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 6px 6px 0 0 var(--color-text);
+	}
 }
